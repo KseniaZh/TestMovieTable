@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+input {
+        outline: none !important;
+    }
+
+
+
+@import './const.scss';
+@import './mixin.scss';
+
+@import'./Home/homeWrapper.scss';
+@import'./Home/homeHead.scss';
+@import'./Home/homeMain.scss';
+
+@import './UI/Buttons.scss';
+
+@import './PageId/PageId.scss';
+
+
+::-webkit-scrollbar {
+    width: 12px;
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background: $background_Home_table;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background: $background_Home_table;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $background_Home_table-scrollbar;
+    border-radius: 10px;
+}

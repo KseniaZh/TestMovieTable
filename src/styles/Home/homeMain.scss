@@ -1,0 +1,154 @@
+.homeMain {
+    margin: 0 1% 0 2%;
+
+    @media screen and (max-width: 1100px) {
+        margin: 0 1%;
+    }
+
+    @media screen and (max-width: 800px) {
+        margin: 0;
+    }
+
+    overflow: auto;
+
+    table, thead, tr {
+        width: 100%;
+    }
+
+    * {
+        > tr:hover > * {
+            background: $background_tr_hover;
+            color: $color_Home_table_hover;
+        }
+
+        > tr {
+            border-bottom: 3px solid rgb(237, 239, 244);
+
+            > td {
+                text-align: center;
+                margin-bottom: 1%;
+                background: $background_tr;
+                color: $color_Home_table;
+
+                > * {
+                    width: 100%;
+                    height: 100%;
+
+                    > img {
+                        width: 100%;
+                        padding-left: 5%;
+                    }
+                }
+            }
+
+            > td:nth-child(1) {
+                width: 10%;
+
+                @media screen and (max-width: 1100px) {
+                    width: 15%;
+                }
+
+                @media screen and (max-width: 500px) {
+                    width: 25%;
+                }
+            }
+
+            > td:nth-child(2) {
+                width: 65%;
+                text-align: left;
+                padding-left: 2%;
+
+                @media screen and (max-width: 1100px) {
+                    width: 70%;
+                }
+
+                @media screen and (max-width: 500px) {
+                    width: 60%;
+                }
+
+                > * {
+                    width: 100%;
+                    height: 100%;
+
+                    > div {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+
+                        > div:nth-child(1) {
+                            font-weight: bolder;
+                            padding-bottom: 1%;
+                        }
+
+                        > div:nth-child(2) {
+                            padding-left: 3%;
+
+                            @media screen and (max-width: 500px) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            > td:nth-child(3) {
+                width: 22%;
+
+                @media screen and (max-width: 1100px) {
+                    width: 10%;
+                }
+
+                @media screen and (max-width: 500px) {
+                    width: 10%;
+                }
+
+                > * {
+                    width: 100%;
+                    height: 100%;
+
+                    > div {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-content: center;
+
+                        @media screen and (max-width: 1100px) {
+                            flex-direction: column;
+                        }
+
+                        > div:nth-child(2) {
+                            width: 25%;
+                            border-left: 1px solid black;
+                            border-right: 1px solid black;
+
+                            @media screen and (max-width: 1100px) {
+                                border-left: none;
+                                border-right: none;
+                                border-top: 1px solid black;
+                                border-bottom: 1px solid black;
+                                margin: 1% auto;
+                            }
+                        }
+
+                        > div:nth-child(3) {
+                            width: 25%;
+
+                            @media screen and (max-width: 1100px) {
+                                width: 100%;
+                            }
+                        }
+
+                        > div:nth-child(1) {
+                            width: 50%;
+
+                            @media screen and (max-width: 1100px) {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    }
+                }
+            }
+        }
+    }
