@@ -40,22 +40,21 @@ function PageId(props) {
     
     const pathHome = '/';
 
-    const [flagOpenComments, setFlagOpenComments] = useState(false);
     const [flagOpenAddCommentForm, setFlagOpenAddCommentForm] = useState(false);
-
-    const hendlerOpenComments = () => {
-        setFlagOpenComments(prev => !prev);
-    };
 
     const hendlerAddComment = () => {
         setFlagOpenAddCommentForm(prev => true);
     };
 
     const [valueFormComment, setValueFormComment] = useState('');
+
     const onchangeFormComment = (event) => {
         setValueFormComment(event.target.value);
     }
     const hendlerSaveComment = () => {
+
+        console.log('valueFormComment ', valueFormComment)
+
         dispatch(saveComment(valueFormComment, idMovie, arrCommentAllMuvie));
         setFlagOpenAddCommentForm(prev => false);
         setValueFormComment('');
@@ -72,7 +71,6 @@ function PageId(props) {
         dispatch(getRequestServerMovieDetails(movieDetailsNull));
     }
 
-    const a = '&#119650;';
     useEffect(() => {
         dispatch(rememberIdMovie(id));
         dispatch(startMovieDetails_GET_RequestServer());
