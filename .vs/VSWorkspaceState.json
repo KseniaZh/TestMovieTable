@@ -2,16 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components",
-    "\\src\\components\\PageId",
-    "\\src\\sagas\\CommentsMovie",
+    "\\src\\containers",
+    "\\src\\containers\\PageId",
     "\\src\\store",
     "\\src\\store\\CommentsMovie",
-    "\\src\\store\\Home",
     "\\src\\styles",
     "\\src\\styles\\PageId",
-    "\\src\\UI"
+    "\\src\\UI",
+    "\\src\\UI\\Buttons",
+    "\\src\\UI\\Input"
   ],
-  "SelectedNode": "\\src\\store\\MovieDetails\\reducerMovieDetails.js",
+  "SelectedNode": "\\src\\store\\CommentsMovie\\reducerCommentsMovie.js",
   "PreviewInSolutionExplorer": false
 }

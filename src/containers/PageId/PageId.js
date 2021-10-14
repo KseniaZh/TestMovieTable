@@ -10,7 +10,8 @@ import {
     getRequestServerMovieDetails,
 } from '../../store/MovieDetails/actionsMovieDetails';
 import {
-    startCommentsMovie_GET_RequestServer
+    saveComment,
+    deleteComment,
 } from '../../store/CommentsMovie/actionsCommentsMovie';
 import CommentsMovie from '../../components/PageId/CommentsMovie';
 import ButtonLink from '../../UI/Buttons/ButtonLink';
@@ -22,18 +23,47 @@ function PageId(props) {
     const dispatch = useDispatch();
 
     const stateMovieDetails = useSelector(state => state.stateMovieDetails.movieDetails.data.movie);
-   
-    const pathHome = '/';
+    const arrCommentAllMuvie = useSelector(state => state.stateCommentsMovie);
 
     let { id } = useParams();
+    let idMovie = id.substr(1);
 
-    const [openComments, setOpenComments] = useState(false);
+    const arrComments = useSelector(state => {
+        let arrComments = [];
+        state.stateCommentsMovie.map((obj, index) => {
+            if (obj.idMovieComment == idMovie) {
+                arrComments = obj.arrComments
+            }
+        });
+        return arrComments;
+    });
+    
+    const pathHome = '/';
+
+    const [flagOpenComments, setFlagOpenComments] = useState(false);
+    const [flagOpenAddCommentForm, setFlagOpenAddCommentForm] = useState(false);
 
     const hendlerOpenComments = () => {
-        dispatch(rememberIdMovie(id));
-        dispatch(startCommentsMovie_GET_RequestServer());
-        setOpenComments(prev => !prev);
+        setFlagOpenComments(prev => !prev);
     };
+
+    const hendlerAddComment = () => {
+        setFlagOpenAddCommentForm(prev => true);
+    };
+
+    const [valueFormComment, setValueFormComment] = useState('');
+    const onchangeFormComment = (event) => {
+        setValueFormComment(event.target.value);
+    }
+    const hendlerSaveComment = () => {
+        dispatch(saveComment(valueFormComment, idMovie, arrCommentAllMuvie));
+        setFlagOpenAddCommentForm(prev => false);
+        setValueFormComment('');
+    }
+    const hendlerDeleteComment = (data) => {
+        dispatch(deleteComment(data, idMovie, arrCommentAllMuvie));
+    };
+
     const hendlerGoHome = () => {
         let movieDetailsNull = {data: {
                 movie: { background_image: '' }
@@ -42,6 +72,7 @@ function PageId(props) {
         dispatch(getRequestServerMovieDetails(movieDetailsNull));
     }
 
+    const a = '&#119650;';
     useEffect(() => {
         dispatch(rememberIdMovie(id));
         dispatch(startMovieDetails_GET_RequestServer());
@@ -63,25 +94,31 @@ function PageId(props) {
                 </div>
                 <div>
                     <div>
+                        
                         <div>Movie comments</div>
-                        <Button
-                            name={openComments ? 'Open' : "Close"}
-                            onclick={hendlerOpenComments}
-                            classname='openCommentsMovie'
-                        />
+                        <div>
+                            <Button
+                                className='buttonCommentAdd'
+                                onclick={hendlerAddComment}
+                                name='+'
+                            />
+                        </div>
                     </div>
-                    {
-                        openComments ?
-                            <CommentsMovie />
-                            :null
-                    }
-                    
+                    <CommentsMovie
+                            arrComments={arrComments}
+                            flagOpenAddCommentForm={flagOpenAddCommentForm}
+                            onclickDelete={hendlerDeleteComment}
+                            nameDelete='&#215;'
+                            value={valueFormComment}
+                            onchange={onchangeFormComment}
+                            onclickSaveComment={hendlerSaveComment}
+                            nameMuvie={stateMovieDetails.title}
+                     />
                 </div>
                 < ButtonLink
                     to = { pathHome }
                     classnameButtonLink='pageId_Button_GoHome'
                     onclick={hendlerGoHome}
-                    icon = 'fa-sign-out'
                     name= '&#215;'
                 />
 

@@ -1,0 +1,125 @@
+.commentsMovie {
+    color: aliceblue;
+    display: flex;
+    flex-direction:column-reverse;
+    width: 100%;
+    border: 1px solid red;
+    
+
+    }
+
+.commentComponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: $background_pageId;
+    margin-top: .5%;
+
+    > div:nth-child(1) {
+        border: .2vw solid #ffffff;
+        border-radius: .5vw;
+        width: 10%;
+        height: 11vw;
+    }
+
+    > div:nth-child(2) {
+        width: 70%;
+        margin: 0 3%;
+        font-weight: bolder;
+        font-size: 1.2vw;
+
+        @media screen and (max-width: 1100px) {
+            font-size: 1.5vw;
+        }
+
+        @media screen and (max-width: 500px) {
+            font-size: 3vw;
+        }
+    }
+
+    > div:nth-child(3) {
+    }
+}
+
+.AddCommentForm {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: $background_Home_wrapper;
+    z-index: 100;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+
+    @media screen and (max-width: 1100px) {
+        padding-top: 5%;
+    }
+
+    @media screen and (max-width: 500px) {
+        padding-top: 25%;
+    }
+
+    > div {
+
+        > div:nth-child(1) {
+            font-size: 3vw;
+
+            @media screen and (max-width: 1100px) {
+                font-size: 4vw;
+            }
+
+            @media screen and (max-width: 500px) {
+                font-size: 7vw;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form > div {
+            display: flex;
+            flex-direction: column;
+            margin: 15% 0 2% 0;
+
+            @media screen and (max-width: 1100px) {
+                margin: 5% 0;
+            }
+
+            @media screen and (max-width: 850px) {
+                margin: 1% 0;
+            }
+
+            @media screen and (max-width: 500px) {
+                margin: 10% 0 5%;
+            }
+
+            label {
+                margin: 5% 0;
+            }
+
+            textarea {
+                color: $color_Home_table_hover;
+                background: $background_tr_hover;
+                padding: 3%;
+                border-radius: .5vw;
+                font-size: 1vw;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 4vw;
+                }
+            }
+        }
+
+        > div:nth-child(2) {
+            font-size: 3vw;
+        }
+    }
+}

@@ -21,7 +21,6 @@ export const rememberIdMovie = (data) => {
 
     let id = data.substr(1);
 
-    console.log('rememberIdMovie ID', id);
     return {
         type: REMEMBER_ID_MOVIE,
         payload: id

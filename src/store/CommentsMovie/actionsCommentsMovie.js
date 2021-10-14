@@ -1,7 +1,8 @@
 import {
     START_GET_COMMENT_MOVIE_REQUEST,
     GET_COMMENT_MOVIE_REQUEST,
-
+    ADD_COMMENT,
+    DELETE_COMMENT,
 } from "./types";
 
 export const startCommentsMovie_GET_RequestServer = () => {
@@ -17,3 +18,59 @@ export const getRequestServerCommentsMovie = (dataFromServer) => {
     }
 }
 
+export const saveComment = (value, id, oldArrMuvie) => {
+
+    let arr = [];
+
+    oldArrMuvie.map((obj, index) => {
+        let objNew = {};
+
+            if (obj.idMovieComment == id) {
+                objNew = obj;
+
+            } else {
+                objNew = {
+                    idMovieComment: '',
+                    arrComments: []
+                };
+                objNew.idMovieComment = id;
+            };
+            objNew.arrComments.push(value);
+            arr.push(objNew);
+    })
+
+    return {
+        type: ADD_COMMENT,
+        payload: arr
+    }
+}
+export const deleteComment = (data, id, oldArrMuvie) => {
+
+    let arr = [];
+
+    oldArrMuvie.map((obj, index) => {
+        let objNew = {};
+
+        if (obj.idMovieComment == id) {
+            objNew = {
+                idMovieComment: '',
+                arrComments: []
+            };
+            objNew.idMovieComment = id;
+
+            obj.arrComments.map((item, index) => {
+                if (index != data) {
+                    objNew.arrComments.push(item);
+                }
+            })
+        } else {
+            objNew = obj;
+        };
+        arr.push(objNew);
+    })
+
+    return {
+        type: DELETE_COMMENT,
+        payload: arr
+    }
+}
