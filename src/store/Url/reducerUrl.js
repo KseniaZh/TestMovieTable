@@ -9,7 +9,7 @@ const initialState = {
 
             };
 
-
+//'https://yts.mx/api/v2/list_movies.json?quality=3D?limit=10?page=5';
 
 const stateUrl = (state = initialState, action) => {
 

@@ -18,23 +18,9 @@ input {
 @import'./Home/homeMain.scss';
 
 @import './UI/Buttons.scss';
-
+@import './UI/ButtonScrollDownUp.scss';
 @import './PageId/PageId.scss';
 @import './PageId/CommentsMovie.scss';
 
-::-webkit-scrollbar {
-    width: 12px;
-    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-    background: $background_Home_table;
-}
 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-    background: $background_Home_table;
-    border-radius: 10px;
-}
 
-::-webkit-scrollbar-thumb {
-    background: $background_Home_table-scrollbar;
-    border-radius: 10px;
-}

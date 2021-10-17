@@ -1,12 +1,14 @@
-﻿import React from 'react';
+﻿import React, { useRef} from 'react';
 import { Link } from 'react-router-dom';
 
 function RowTableHome(props) {
 
+    const trRef = useRef(null);
+
     return(
 
         <>
-            <tr>
+            <tr ref={trRef}  >
                
                 <td>
                     <Link
@@ -15,11 +17,11 @@ function RowTableHome(props) {
                         <img src={props.td_0} alt="" />
                     </Link>
                 </td>
-                <td>
+                <td onClick={props.onclick}>
                     <Link
                         to={props.to}
                     >
-                        <div>
+                        <div onClick={props.onclick}>
                             <div>{props.td_1}</div>
                             <div>{props.td_5}</div>
                         </div>
@@ -37,7 +39,7 @@ function RowTableHome(props) {
                             }
                             </div>
                             <div>{props.td_3}</div>
-                            <div>{props.td_4}</div>
+                            <div>{props.td_4}&#9733;</div>
                         </div>
                     </Link>
                 </td>

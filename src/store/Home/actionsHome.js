@@ -1,6 +1,9 @@
 import {
     GET_REQUEST,
     START_HOME_GET_REQUEST,
+    COUNTER_PAGE_ACTIVE,
+    COUNTER_DOWNLOADED_MOVIES,
+    SAVE_SCROLL_HEIGHT,
 
 } from "./types";
 
@@ -10,12 +13,44 @@ export const startHome_GET_RequestServer = () => {
     }
 }
 
-export const getRequestServer = (dataFromServer) => {
+export const getRequestServer = (dataFromServer, stateTableOld) => {
 
-    console.log(dataFromServer);
+    let stateTable = [ ...stateTableOld, ...dataFromServer ];
 
     return {
         type: GET_REQUEST,
-        payload: dataFromServer
+        payload: stateTable
+    }
+}
+
+
+export const counterPageActive = (pageActiveOld, data) => {
+
+    let pageActiveNew = Number(pageActiveOld) + Number(data);
+
+    console.log(pageActiveNew);
+
+    return {
+        type: COUNTER_PAGE_ACTIVE,
+        payload: pageActiveNew
+    }
+}
+export const counterDownloadedMovies = (limitDownloadMovies, counterDownloadedMoviesOld) => {
+
+    let counterDownloadedMovies = Number(counterDownloadedMoviesOld) + Number(limitDownloadMovies);
+
+    return {
+        type: COUNTER_DOWNLOADED_MOVIES,
+        payload: counterDownloadedMovies
+    }
+}
+
+export const saveScrollTop = (y) => {
+
+    const scrollTop = Number(y);
+
+    return {
+        type: SAVE_SCROLL_HEIGHT,
+        payload: scrollTop
     }
 }

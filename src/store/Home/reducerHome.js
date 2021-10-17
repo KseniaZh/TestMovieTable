@@ -1,14 +1,17 @@
 import {
     GET_REQUEST,
+    COUNTER_PAGE_ACTIVE,
+    COUNTER_DOWNLOADED_MOVIES,
+    SAVE_SCROLL_HEIGHT,
+
 } from "./types";
 
 const initialState = {
-    stateTable: {
-        data: {
-            movies: []
-        }
-    },
+    stateTable: [],
     pageActive: '1',
+    limitDownloadMovies: '20',
+    counterDownloadedMovies: 0,
+    scrollHeight: 0,
 };
 
 
@@ -21,7 +24,22 @@ const stateHome = (state = initialState, action) => {
             return {
                 ...state,
                 stateTable: action.payload
-            }  
+            }
+        case COUNTER_PAGE_ACTIVE:
+            return {
+                ...state,
+                pageActive: action.payload
+            }
+        case COUNTER_DOWNLOADED_MOVIES:
+            return {
+                ...state,
+                counterDownloadedMovies: action.payload
+            }
+        case SAVE_SCROLL_HEIGHT:
+            return {
+                ...state,
+                scrollHeight: action.payload
+            }
 
         default:
             return state;

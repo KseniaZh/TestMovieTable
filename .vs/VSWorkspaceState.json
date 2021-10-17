@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\PageId",
-    "\\src\\styles",
-    "\\src\\styles\\PageId",
-    "\\src\\styles\\UI",
-    "\\src\\UI",
-    "\\src\\UI\\Buttons",
-    "\\src\\UI\\Input"
+    "\\src\\components\\Home",
+    "\\src\\containers",
+    "\\src\\containers\\Home",
+    "\\src\\sagas",
+    "\\src\\sagas\\Home",
+    "\\src\\sagas\\MovieDetails",
+    "\\src\\store",
+    "\\src\\store\\Home"
   ],
   "PreviewInSolutionExplorer": false
 }

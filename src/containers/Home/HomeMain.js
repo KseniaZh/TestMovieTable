@@ -3,23 +3,11 @@ import RowTableHome from '../../components/Home/RowTableHome';
 
 function HomeMain(props) {
 
-
-
     return(
         <div className={props.classname}>
 
-            <table>
-                <thead>
-                    <RowTableHome
-                        td_0={props.arrThead[0]}
-                        td_1={props.arrThead[1]}
-                        td_2={props.arrThead[4]}
-                        td_3={props.arrThead[2]}
-                        td_4={props.arrThead[3]}
-                        to={props.arrThead[5]}
-                    />
-                </thead>
-                <tbody>
+            <table >
+                <tbody >
                     {
                         props.stateMainTable.map((item, index) => {
                             return <RowTableHome
@@ -32,15 +20,12 @@ function HomeMain(props) {
                                         td_3={item["year"]}
                                         td_4={item['rating']}
                                         td_5={item['synopsis']}
+                                        onclick={props.onclick}
                                     />
                         })
                     }
                 </tbody>
-               
-
             </table>
-  
-
         </div>
     )
 }
