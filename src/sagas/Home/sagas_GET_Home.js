@@ -2,6 +2,7 @@ import { takeEvery, select, put, call } from 'redux-saga/effects';
 import {
     getRequestServer,
     counterDownloadedMovies,
+    counterPageActive,
 } from '../../store/Home/actionsHome';
 
 import { START_HOME_GET_REQUEST } from '../../store/Home/types';
@@ -12,9 +13,12 @@ export function* workerStart_GET_RequestServer() {
 
     const url_all = yield select(state => state.stateUrl.url_GET_Home_Table);
     const stateHome = yield select(state => state.stateHome);
-    const url = `${url_all}&limit=20&page=${stateHome.pageActive}?limit=${Number(stateHome.limitDownloadMovies)}`;
+    const pageActive = Number(stateHome.pageActive) + 1;
+    const url = `${url_all}?limit=${Number(stateHome.limitDownloadMovies)}&page=${pageActive}`;
 
  //  'https://yts.mx/api/v2/list_movies.json?quality=3D?limit=10?page=5';
+
+    console.log('url ', url)
 
     try {
         const data = yield call(fetchData, url);
@@ -24,6 +28,8 @@ export function* workerStart_GET_RequestServer() {
         yield put(getRequestServer(dataMuvie, stateHome.stateTable));
 
         yield put(counterDownloadedMovies(stateHome.limitDownloadMovies, stateHome.counterDownloadedMovies));
+
+        yield put(counterPageActive(pageActive));
         
   
     } catch (error) {

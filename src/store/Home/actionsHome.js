@@ -24,17 +24,6 @@ export const getRequestServer = (dataFromServer, stateTableOld) => {
 }
 
 
-export const counterPageActive = (pageActiveOld, data) => {
-
-    let pageActiveNew = Number(pageActiveOld) + Number(data);
-
-    console.log(pageActiveNew);
-
-    return {
-        type: COUNTER_PAGE_ACTIVE,
-        payload: pageActiveNew
-    }
-}
 export const counterDownloadedMovies = (limitDownloadMovies, counterDownloadedMoviesOld) => {
 
     let counterDownloadedMovies = Number(counterDownloadedMoviesOld) + Number(limitDownloadMovies);
@@ -42,6 +31,13 @@ export const counterDownloadedMovies = (limitDownloadMovies, counterDownloadedMo
     return {
         type: COUNTER_DOWNLOADED_MOVIES,
         payload: counterDownloadedMovies
+    }
+}
+export const counterPageActive = (pageActive) => {
+
+    return {
+        type: COUNTER_PAGE_ACTIVE,
+        payload: pageActive
     }
 }
 

@@ -8,7 +8,7 @@ import {
 
 const initialState = {
     stateTable: [],
-    pageActive: '1',
+    pageActive: 0,
     limitDownloadMovies: '20',
     counterDownloadedMovies: 0,
     scrollHeight: 0,
@@ -35,6 +35,7 @@ const stateHome = (state = initialState, action) => {
                 ...state,
                 counterDownloadedMovies: action.payload
             }
+
         case SAVE_SCROLL_HEIGHT:
             return {
                 ...state,

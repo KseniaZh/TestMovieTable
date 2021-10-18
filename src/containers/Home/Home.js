@@ -30,8 +30,13 @@ function Home(props) {
 
     const hendlerSaveScrollTop = () => {
         dispatch(saveScrollTop(tableRef.current.scrollTop));
-        console.log('documentElement.clientHeight', document.documentElement.clientHeight)
-        console.log('Home y', document.documentElement.scrollHeight)
+
+    }
+    const hendlerScrollDownload = (event) => {
+
+        if (tableRef.current.scrollHeight - (tableRef.current.scrollTop + window.innerHeight) < 800) {
+            dispatch(startHome_GET_RequestServer());
+        }
     }
 
     useEffect(() => {
@@ -40,6 +45,11 @@ function Home(props) {
         };
 
         tableRef.current.scrollTo(0, stateHome.scrollHeight);
+        tableRef.current.addEventListener('scroll', hendlerScrollDownload);
+
+        return () => {
+            tableRef.current.removeEventListener('scroll', hendlerScrollDownload);
+        }
 
     }, [])
 
@@ -49,7 +59,6 @@ function Home(props) {
 
             <HomeHead
                 classname='homeHead'
-                arrThead={arrThead}
             />
             <HomeMain
                 classname='homeMain'
@@ -69,9 +78,3 @@ function Home(props) {
 
 export default connect()(Home)
 
-
-//const [loaderVisible, setLoaderVisible] = useState(false);
-
-//const buttonShowHandler = () => {
-//    setLoaderVisible(prev => !prev);
-//};
