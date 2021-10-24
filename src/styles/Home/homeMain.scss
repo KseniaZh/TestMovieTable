@@ -1,8 +1,40 @@
 .homeMain {
+    display: flex;
+    flex-direction: row;
 
+
+    > div:nth-child(1) {
+        width: 20%;
+        margin-left: .5vw;
+
+        @media screen and (max-width: 910px) {
+            display: none;
+            margin: 0;
+        }
+    }
+
+    > div:nth-child(2) {
+        width: 79.2%;
+        margin-left: 20%;
+
+        @media screen and (max-width: 910px) {
+            width: 100%;
+            margin-left: 0%;
+            margin-top: 0%;
+        }
+    }
+
+    table {
+        margin-left: 10px;
+
+        @media screen and (max-width: 910px) {
+            margin-left: 0%;
+        }
+    }
 
     table, thead, tr {
         width: 100%;
+        background: $background_Home_table;
     }
 
     * {
@@ -11,8 +43,9 @@
             color: $color_Home_table_hover;
         }
 
-        > tr{
+        > tr {
             border-bottom: 3px solid rgb(237, 239, 244);
+            border-left: 3px solid rgb(237, 239, 244);
 
             > td {
                 text-align: center;

@@ -1,72 +1,24 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React from 'react';
+
+const ButtonScrollDownUp = (props) =>{
 
 
-function ButtonScrollDownUp(props) {
-
-    const [flagButtonScroll, setFlagButtonScroll] = useState(false);
-
-    const haveButtonScroll = () => {
-        console.log('GOOOO');
-        if (document.documentElement.scrollHeight > document.documentElement.clientHeight) {
-            setFlagButtonScroll(true);
-        }
-    } // первично кнопки не видно. появляется при прокрутке
-
-    const buttonScrollStyle = ['buttonScroll'];
-
-    const [scrollDownUp, setScrollDownUp] = useState(false);
-
-    //разворот ракеты:
-    if (scrollDownUp) {
-        buttonScrollStyle.push('goUp');
-        window.scrollTo(0, document.documentElement.scrollHeight);
-    } else {
-        buttonScrollStyle.push('goDown');
-        window.scrollTo(0, 0);
-    }
-
-    const hendlerScrollDownUp = () => {
-        setScrollDownUp(!scrollDownUp);
-    }
-
-    const buttonGoDownUp = () => {
-
-        if (document.documentElement.clientHeight > (document.documentElement.scrollHeight - window.pageYOffset)) {
-            hendlerScrollDownUp();
-        }
-        if (window.pageYOffset < 5) {
-            setScrollDownUp(false);
-        }
-    }
-
-
-    const ButtonScroll = () => {
-        return <div
-                    className={buttonScrollStyle.join(' ')}
-                    onClick={hendlerScrollDownUp}
-                >
-                    <div>
-                        {props.nameButton}
+    return (
+        <>
+            {
+                props.flag ?
+                    <div
+                        className={props.classname}
+                        onClick={props.onclick}
+                    >
+                            <div>
+                                {props.nameButton}
+                            </div>
                     </div>
-                </div>
-    }
-
-    useEffect(() => {
-
-        document.addEventListener('scroll', buttonGoDownUp);
-        document.addEventListener('scroll', haveButtonScroll);
-        return () => {
-            document.removeEventListener('scroll', buttonGoDownUp);
-            document.removeEventListener('scroll', haveButtonScroll);
-        }
-    }, [])
-
-    return(
-
-        flagButtonScroll ?
-            ButtonScroll()
-            : null
+                    :null
+            }
             
+        </>
     )
 }
 

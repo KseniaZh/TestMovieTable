@@ -1,7 +1,9 @@
 .pageIdWrapper {
     width: 100vw;
+    min-height: 100vh;
     background: $background_Home_wrapper;
     padding: 1%;
+    overflow-x:hidden;
 
     @media screen and (max-width: 1100px) {
         padding: 2% 1.5%;

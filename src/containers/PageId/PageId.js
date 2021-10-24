@@ -31,7 +31,7 @@ function PageId(props) {
     const arrComments = useSelector(state => {
         let arrComments = [];
         state.stateCommentsMovie.map((obj, index) => {
-            if (obj.idMovieComment == idMovie) {
+            if (obj.idMovieComment === idMovie) {
                 arrComments = obj.arrComments
             }
         });
@@ -52,8 +52,6 @@ function PageId(props) {
         setValueFormComment(event.target.value);
     }
     const hendlerSaveComment = () => {
-
-        console.log('valueFormComment ', valueFormComment)
 
         dispatch(saveComment(valueFormComment, idMovie, arrCommentAllMuvie));
         setFlagOpenAddCommentForm(prev => false);

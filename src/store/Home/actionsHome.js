@@ -15,7 +15,10 @@ export const startHome_GET_RequestServer = () => {
 
 export const getRequestServer = (dataFromServer, stateTableOld) => {
 
-    let stateTable = [ ...stateTableOld, ...dataFromServer ];
+    let stateTable = [...stateTableOld, ...dataFromServer];
+
+    let genres = [];
+    stateTable.map(obj => genres.push(obj.genres))
 
     return {
         type: GET_REQUEST,

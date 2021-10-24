@@ -1,35 +1,40 @@
-.buttonScroll {
-    z-index: 1100;
+
+.button_scroll {
+    z-index: 1500;
     display: flex;
-    position: fixed;
-    right: 3%;
-    height: 55px;
-    width: 55px;
-    box-shadow: 0px 0px 6px 6px pink inset;
-    border-radius: 50%;
-    font-size: 170%;
-    opacity: .7;
-    transition: all 2s cubic-bezier(.17,1.24,.73,1.08) 0s, transform 1s cubic-bezier(.17,1.24,.73,1.08) 1.8s;
     justify-content: center;
     align-items: center;
+    border: 1px solid red;
+    position: fixed !important;
+    bottom: 5vw;
+    right: 5vw;
+    height: 50px !important;
+    width: 50px !important;
+    color: $background_filter_blind;
+    border-radius: 1vh;
+    border: 3px solid $background_filter_blind;
+    font-size: 250%;
+    font-weight: bolder;
+    opacity: .8;
+    transition: all .5s cubic-bezier(.17,1.24,.73,1.08) 0s;
+    margin: 0 auto;
+
+    @media screen and (max-width: 500px) {
+        bottom: 7vw;
+        right: 50%;
+        transform: translateX(20px);
+        height: 40px !important;
+        width: 40px !important;
+    }
 
     > div {
         display: flex;
     }
 }
-.goDown {
-    top: 10%;
-    transform: rotate(135deg);
-}
-.goUp {
-    top: 85%;
-    transform: rotate(315deg);
-}
 
-.buttonScroll:hover {
+
+.button_scroll:hover {
     opacity: 1;
-    box-shadow: 0px 0px 1px 2px pink inset;
+    color: $color_filter_select;
+    border: 3px solid $color_filter_select;
 }
-
-
-

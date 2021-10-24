@@ -2,8 +2,6 @@
 
 import Comment from './Comment';
 import AddCommentForm from './AddCommentForm';
-import Button from '../../UI/Buttons/Button';
-
 
 function CommentsMovie(props) {
 

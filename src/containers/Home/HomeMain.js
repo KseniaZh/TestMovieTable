@@ -1,42 +1,45 @@
 ﻿import React from 'react';
 import RowTableHome from '../../components/Home/RowTableHome';
+import FilterHomeHead from '../../components/Home/FilterHomeHead';
 
-function HomeMain(props) {
 
-    return(
-        <div className={props.classname}>
+const HomeMain = React.forwardRef((props, ref)=> {
 
-            <table >
-                <tbody >
-                    {
-                        props.stateMainTable.map((item, index) => {
-                            return <RowTableHome
-                                        key={index}
-                                        to={`/:${item['id']}`}
-                                        id={item['id']}
-                                        td_0={item['medium_cover_image']}
-                                        td_1={item['title']}
-                                        td_2={item['genres']}
-                                        td_3={item["year"]}
-                                        td_4={item['rating']}
-                                        td_5={item['synopsis']}
-                                        onclick={props.onclick}
-                                    />
-                        })
-                    }
-                </tbody>
-            </table>
+    return (
+        <div className={props.classname} ref={ref}>
+            <FilterHomeHead
+                classname='home_homeMain_filter'
+                stateFilter={props.stateFilter}
+                onclick={props.hendlerFilterGoSearch}
+                handleChangeSelect={props.handleChangeSelect}
+                handlerChangeInput={props.handlerChangeInput}
+                handlerChangeSortBy={props.handlerChangeSortBy}
+                hendlerScrollDownUp={props.hendlerScrollDownUp}
+                flagButtonScroll={props.flagButtonScroll}
+            />
+
+            <div>
+                <table >
+                    <tbody >
+                        {
+                            props.stateMainTable.map((item, index) => {
+                           
+                                return <RowTableHome
+                                            key={index}
+                                            to={`/:${item['id']}`}
+                                            id={item['id']}
+                                            stateTd={item}
+                                            onclick={props.onclick}
+                                            item={item}
+                                        />
+                            })
+                        }
+                    </tbody>
+                </table>
+            </div>
+  
         </div>
     )
-}
+})
 
 export default HomeMain
-
-
-//"small_cover_image"
-//"title"
-//"year"
-//"rating"
-//"genres": ["Comedy", "Drama"],
-
-//    "description_full": "Two neighbors, Justas and Povilas, are going fishing. The men set camp on a remote island and chat about stuff when the conversation unexpectedly turns into not only an intriguing story about their past, but also about life and death.",

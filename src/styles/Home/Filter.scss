@@ -1,0 +1,191 @@
+.home_homeMain_filter, .home_homeHead_filter {
+    display: flex;
+    position: fixed;
+    width: 20vw;
+    height: 90vh;
+    flex-direction: column;
+    background: inherit;
+    color: $color_Home_wrapper;
+    font-size: 1em;
+
+    > div:nth-child(1) {
+        margin: 5vh 0 2vh 0;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 0vh auto .3vh;
+
+        select, input {
+            background: $background_homeHead_filter_select;
+            font-size: 1em;
+            color: $color_box-shadow;
+            border-radius: .3em;
+            height: 2.2em;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding-left: 5%;
+        }
+
+        select:hover, select:active, select:focus,
+        input:hover, input:active, input:focus {
+            background: $background_tr_hover;
+            box-shadow: 0 0 2px 1px $color_box-shadow;
+            border: none;
+        }
+    }
+}
+.home_homeMain_filter {
+    .home_homeHead_filter__Input > lebel,
+    .home_homeHead_filter__sortBy > div,
+    .home_filter_search_wrapper > div:nth-child(1) {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .home_homeHead_filter__Input {
+        margin: 5vh 0 2vh 0;
+    }
+
+    .home_filter_search_wrapper {
+        margin: 5vh 0 0 0;
+
+        > div:nth-child(1) {
+            margin: 2vh 0 3vh 0;
+        }
+    }
+}
+
+.home_homeHead_filter {
+    .home_homeHead_filter__Input {
+        margin: 2vh 0 1vh 0;
+    }
+
+    .home_filter_search_wrapper {
+        margin: 4vh 0 0 0;
+        font-weight: bold;
+    }
+
+    .home_homeHead_filter__sortBy > div {
+        font-weight: bold;
+        margin: 1vh;
+    }
+}
+
+
+.home_homeHead_filter__select {
+        font-weight: bold;
+    }
+
+    .home_homeHead_filter__Input {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .home_homeHead_filter__sortBy {
+        display: flex;
+        flex-direction: column !important;
+
+        > select {
+            width: 100% !important;
+        }
+
+        > lebel {
+            padding: 1% 0% 2% 0%;
+        }
+    }
+
+    .home_homeHead_filter__select {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        > div {
+            margin: 1em 0 .5em 1em;
+        }
+
+        select {
+            width: 10em;
+            padding: 0;
+            color: $color_box-shadow !important;
+            margin: .5em 0 .5em 1em;
+        }
+    }
+
+.filterBlind {
+    display: flex;
+    
+    @media screen and (min-width: 910px) {
+        display: none;
+    }
+
+    @media screen and (max-height: 500px) {
+        /*display: none;*/
+        background: red;
+        height: 1% !important;
+    }
+}
+
+    .home_homeHead_button__open_filter {
+        display: flex;
+
+        @media screen and (min-width: 910px) {
+            display: none;
+        }
+    }
+
+.home_homeHead_filter {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: $background_filter_blind;
+    top: 10vh;
+
+    > div:nth-child(1) {
+        display: none;
+    }
+
+    > form {
+        width: 100%;
+        height: 65%;
+        background: $background_filter_form;
+        padding: 0 5vw;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+        box-shadow: 0 0 3px 1px $color_homeHead_filter_select;
+
+        .home_homeHead_filter__button_goSearch {
+            border: 3px solid $background_homeHead_filter_select;
+            color: $background_homeHead_filter_select;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-height: 500px) {
+            height: 90% !important;
+        }
+    }
+
+    > div:nth-child(3) {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        font-size: 8vh;
+
+        > div {
+            margin: 1vh auto;
+            color: $color_box-shadow;
+        }
+
+        > div:active {
+            margin: 1vh auto;
+            color: $color_homeHead_filter_select;
+        }
+    }
+}

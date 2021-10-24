@@ -1,10 +1,12 @@
 //Home
 
 $color_Home_wrapper: rgb(231, 234, 240);
-$color_Home_table: rgb(12, 22, 52);
-$color_Home_table_hover: rgb(17, 22, 152);
+$color_Home_table: rgb(17, 22, 152);
+$color_Home_table_hover: rgb(12, 22, 52);
 
-$background_Home_wrapper: linear-gradient(90deg, rgba(4, 11, 33, 0.9), rgba(4, 11, 33, .8));
+$background_Home_wrapper: linear-gradient(270deg, rgb(3, 15, 51), rgba(16, 26, 59, 0.9));
+$background_Home_Head: rgb(3, 15, 51);
+$background_Home_filter: linear-gradient(180deg, rgba(4, 11, 33, .9), rgba(16, 26, 59, 0.7));
 
 $background_Home_1: rgba(208, 212, 221, 0.9);
 
@@ -26,3 +28,13 @@ $color_textarea: rgba(4, 11, 33, 1);
 //UI
 $color-NavigationButton-Text: rgb(12, 22, 52);
 
+//Filter
+
+$background_homeHead_filter: rgba(120, 123, 134, 0.5);
+$background_homeHead_filter_select: rgba(231, 234, 240, .8);
+$background_homeHead_filter_select_hover: rgba(231, 234, 240, 1);
+$color_filter_select: rgba(4, 11, 33, 1);
+$color_box-shadow: rgb(1, 15, 59);
+$background_filter_blind: rgba(1, 15, 59, 0.55);
+$color_homeHead_filter_select: rgba(231, 234, 240, .6);
+$background_filter_form: rgba(1, 10, 39, 0.8);

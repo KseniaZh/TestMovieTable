@@ -20,8 +20,6 @@ export const getRequestServerCommentsMovie = (dataFromServer) => {
 
 export const saveComment = (value, id, oldArrMuvie) => {
 
-    console.log('value', value)
-
     let arr = [{
         idMovieComment: '',
         arrComments: []
@@ -37,15 +35,13 @@ export const saveComment = (value, id, oldArrMuvie) => {
             arrComments: []
         };
 
-            if (obj.idMovieComment == id) {
+            if (obj.idMovieComment === id) {
                 objNew = obj;
                 objNew.arrComments.push(value);
-            } else if (obj.idMovieComment != '' && obj.idMovieComment != id){
+            } else if (obj.idMovieComment !== '' && obj.idMovieComment !== id){
                 objNew = obj;
             } else {
                 objNew = objNull;
-                console.log(' objNew', objNew)
-                console.log('value', value)
                 objNew.idMovieComment = id;
                 objNew.arrComments.push(value);
             };
@@ -64,7 +60,7 @@ export const deleteComment = (data, id, oldArrMuvie) => {
     oldArrMuvie.map((obj, index) => {
         let objNew = {};
 
-        if (obj.idMovieComment == id) {
+        if (obj.idMovieComment === id) {
             objNew = {
                 idMovieComment: '',
                 arrComments: []
@@ -72,7 +68,7 @@ export const deleteComment = (data, id, oldArrMuvie) => {
             objNew.idMovieComment = id;
 
             obj.arrComments.map((item, index) => {
-                if (index != data) {
+                if (index !== data) {
                     objNew.arrComments.push(item);
                 }
             })

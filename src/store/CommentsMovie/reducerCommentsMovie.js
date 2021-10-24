@@ -1,5 +1,4 @@
 import {
-    GET_COMMENT_MOVIE_REQUEST,
     ADD_COMMENT,
     DELETE_COMMENT,
 } from "./types";

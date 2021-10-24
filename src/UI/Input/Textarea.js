@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
 function Textarea (props){
-    
-    const data = props.data;
 
     const ref= useRef();
     
@@ -12,7 +10,6 @@ function Textarea (props){
     
     return(
         <div>
-        
             <label 
                     htmlFor={props.id}
                     className={props.classNameLabel}
@@ -32,10 +29,7 @@ function Textarea (props){
                     cols = {props.cols}
                     rows = {props.rows}
                     disabled = {props.disabled}
-
             />
-        
-            
         </div>
     )
 }

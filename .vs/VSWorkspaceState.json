@@ -4,14 +4,13 @@
     "\\src",
     "\\src\\containers",
     "\\src\\containers\\Home",
-    "\\src\\sagas\\Home",
-    "\\src\\sagas\\MovieDetails",
     "\\src\\store\\Home",
     "\\src\\styles\\Home",
-    "\\src\\styles\\UI",
+    "\\src\\styles\\PageId",
     "\\src\\UI",
-    "\\src\\UI\\Buttons"
+    "\\src\\UI\\Buttons",
+    "\\src\\UI\\Select"
   ],
-  "SelectedNode": "\\src\\containers\\Home\\Home.js",
+  "SelectedNode": "\\src\\UI\\Buttons\\ButtonScrollDownUp.js",
   "PreviewInSolutionExplorer": false
 }
