@@ -29,11 +29,11 @@ function Home(props) {
 
     const [flagButtonScroll, setFlagButtonScroll] = useState(false);
 
-    const hendlerSaveScrollTop = () => {
+    const handlerSaveScrollTop = () => {
         dispatch(saveScrollTop(tableRef.current.scrollTop));
     }
 
-    const hendlerScrollDownload = () => {
+    const handlerScrollDownload = () => {
 
         if (tableRef.current.scrollHeight - (tableRef.current.scrollTop + window.innerHeight) < 1000) {
             dispatch(startHome_GET_RequestServer());
@@ -43,7 +43,7 @@ function Home(props) {
         }
     }
 
-    const hendlerScrollDownUp = () => {
+    const handlerScrollDownUp = () => {
 
         tableRef.current.scrollTo(0, 0);
         let flag = () => (
@@ -54,7 +54,7 @@ function Home(props) {
 
     const [flagOpenFilter, setFlagOpenFilter] = useState(false);
 
-    const hendlerOpenFilter = () => {
+    const handlerOpenFilter = () => {
         setFlagOpenFilter(prev => !prev);
     }
 
@@ -71,7 +71,7 @@ function Home(props) {
         dispatch(changeValueInput(event.target.value));
     }
 
-    const hendlerFilterGoSearch = () => {
+    const handlerFilterGoSearch = () => {
         dispatch(counterPageActive(0));
         dispatch(getRequestServer([], []));/* обнуляем, чтоб  залить новые данные с учетом фильтра*/
         dispatch(startHome_GET_RequestServer());
@@ -103,27 +103,27 @@ function Home(props) {
                 handleChangeSelect={handleChangeSelect}
                 handlerChangeInput={handlerChangeInput}
                 handlerChangeSortBy={handlerChangeSortBy}
-                hendlerFilterGoSearch={hendlerFilterGoSearch}
-                onclickOpenFilter={hendlerOpenFilter}
+                hendlerFilterGoSearch={handlerFilterGoSearch}
+                onclickOpenFilter={handlerOpenFilter}
             />
 
             <HomeMain
                 ref={tableRef}
                 classname='homeMain'
                 stateMainTable={stateHome.stateTable}
-                onclick={hendlerSaveScrollTop}
+                onclick={handlerSaveScrollTop}
                 stateFilter={stateFilter}
                 handleChangeSelect={handleChangeSelect}
                 handlerChangeInput={handlerChangeInput}
                 handlerChangeSortBy={handlerChangeSortBy}
-                hendlerFilterGoSearch={hendlerFilterGoSearch}
-                onclickOpenFilter={hendlerOpenFilter}
+                hendlerFilterGoSearch={handlerFilterGoSearch}
+                onclickOpenFilter={handlerOpenFilter}
             />
           
             <ButtonScrollDownUp
                 classname='button_scroll'
                 nameButton="&#11121;"
-                onclick={hendlerScrollDownUp}
+                onclick={handlerScrollDownUp}
                 flag={flagButtonScroll}
              
             />
