@@ -30,7 +30,7 @@ function PageId(props) {
 
     const arrComments = useSelector(state => {
         let arrComments = [];
-        state.stateCommentsMovie.map((obj, index) => {
+        state.stateCommentsMovie.forEach((obj, index) => {
             if (obj.idMovieComment === idMovie) {
                 arrComments = obj.arrComments
             }

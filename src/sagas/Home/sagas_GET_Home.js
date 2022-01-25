@@ -9,7 +9,6 @@ import { countMuvieSelect } from '../../store/Filter/actionsFilter';
 import { START_HOME_GET_REQUEST } from '../../store/Home/types';
 import fetchData from '../../functions/fetchData';
 
-
 export function* workerStart_GET_RequestServer() {
 
     const url_all = yield select(state => state.stateUrl.url_GET_Home_Table);
@@ -26,9 +25,6 @@ export function* workerStart_GET_RequestServer() {
 
     const url = `${url_all}?limit=${limit}&page=${pageActive}&quality=${quality}&genre=${genre}&minimum_rating=${rating}&query_term=${query_term}&sort_by=${sort_by}`;
   
-    //так выглядит запрос  https://yts.mx/api/v2/list_movies.xml?sort=seeds&limit=15
-
-
     try {
         const data = yield call(fetchData, url);
 

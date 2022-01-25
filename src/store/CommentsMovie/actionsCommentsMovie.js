@@ -29,7 +29,7 @@ export const saveComment = (value, id, oldArrMuvie) => {
             arrComments: []
         };
 
-    oldArrMuvie.map((obj, index) => {
+    oldArrMuvie.forEach((obj, index) => {
         let objNew = {
             idMovieComment: '',
             arrComments: []
@@ -57,7 +57,7 @@ export const deleteComment = (data, id, oldArrMuvie) => {
 
     let arr = [];
 
-    oldArrMuvie.map((obj, index) => {
+    oldArrMuvie.forEach((obj, index) => {
         let objNew = {};
 
         if (obj.idMovieComment === id) {
@@ -67,7 +67,7 @@ export const deleteComment = (data, id, oldArrMuvie) => {
             };
             objNew.idMovieComment = id;
 
-            obj.arrComments.map((item, index) => {
+            obj.arrComments.forEach((item, index) => {
                 if (index !== data) {
                     objNew.arrComments.push(item);
                 }

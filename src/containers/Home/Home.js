@@ -30,7 +30,6 @@ function Home(props) {
     }
 
     const handlerScrollDownload = () => {
-
         if (tableRef.current.scrollHeight - (tableRef.current.scrollTop + window.innerHeight) < 1000) {
             dispatch(startHome_GET_RequestServer());
         }
@@ -54,7 +53,6 @@ function Home(props) {
         event.preventDefault();
         dispatch(changeValueInput(event.target.value));
     }
-
     const handlerFilterGoSearch = () => {
         dispatch(counterPageActive(0));
         dispatch(getRequestServer([], []));/* обнуляем, чтоб  залить новые данные с учетом фильтра*/
