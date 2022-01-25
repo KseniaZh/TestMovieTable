@@ -1,4 +1,4 @@
-import { takeEvery, select, put, call } from 'redux-saga/effects';
+﻿import { takeEvery, select, put, call } from 'redux-saga/effects';
 import {
     getRequestServer,
     counterDownloadedMovies,
@@ -26,7 +26,7 @@ export function* workerStart_GET_RequestServer() {
 
     const url = `${url_all}?limit=${limit}&page=${pageActive}&quality=${quality}&genre=${genre}&minimum_rating=${rating}&query_term=${query_term}&sort_by=${sort_by}`;
   
-    //  https://yts.mx/api/v2/list_movies.xml?sort=seeds&limit=15
+    //так выглядит запрос  https://yts.mx/api/v2/list_movies.xml?sort=seeds&limit=15
 
 
     try {

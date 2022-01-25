@@ -10,8 +10,6 @@ export function* workerStart_CommentsMovie_GET_RequestServer() {
     const idMovie = yield select(state => state.stateMovieDetails.idMovie);
     const url = `${url_all}${idMovie}`;
 
-    console.log('URL', url)
-
     try {
         const data = yield call(fetchData, url);
 
@@ -26,3 +24,6 @@ export function* watch_CommentsMovie_GET_RequestServer(){
     
     yield takeEvery(START_GET_COMMENT_MOVIE_REQUEST, workerStart_CommentsMovie_GET_RequestServer)
 }
+
+// оказывается, url_GET_Comments_Movie не дает доступа или пока не существует
+// сохраняю на всякий случай

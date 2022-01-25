@@ -1,4 +1,4 @@
-import {
+﻿import {
     GET_REQUEST,
     START_HOME_GET_REQUEST,
     COUNTER_PAGE_ACTIVE,
@@ -8,6 +8,7 @@ import {
 } from "./types";
 
 export const startHome_GET_RequestServer = () => {
+    //это слушатель Saga
     return {
         type: START_HOME_GET_REQUEST
     }

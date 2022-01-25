@@ -20,3 +20,6 @@ const stateUrl = (state = initialState, action) => {
     }
 }
 export default stateUrl
+
+
+// оказывается, url_GET_Comments_Movie не дает доступа или пока не существует

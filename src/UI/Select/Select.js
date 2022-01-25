@@ -1,20 +1,6 @@
 ﻿import React from 'react';
 
 function Select(props) {
-    //{
-    //    headerSelect: '',
-    //        nameSelect: '',
-    //            valueSelect: '',
-    //            sizeSelect:'1',
-    //            optionSelect: [
-    //                { value: '', label: '' },
-    //                { value: '', label: '' },
-    //                { value: '', label: '' },
-    //                { value: '', label: '' },
-    //                { value: '', label: '' },
-    //            ],
-    //    classname: '',
-    //},
 
     return(
 

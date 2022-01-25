@@ -6,7 +6,6 @@ import Input from '../../UI/Input/Input';
 
 function FilterHomeHead(props) {
 
-
     return (
         <div className={props.classname}>
             <div>Movie counter : {props.stateFilter.movieCount}</div>
@@ -53,8 +52,6 @@ function FilterHomeHead(props) {
                     onclick={props.onclick}
                     name='&#128269; to find'
                 />
-
-
             </form>
             <div
                 className='filterBlind'

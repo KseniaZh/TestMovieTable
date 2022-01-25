@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import ButtonIcon from '../../UI/Buttons/ButtonIcon';
-import FilterHomeHead from '../../components/Home/FilterHomeHead';
+import FilterHomeHead from '../../UI/Filter/FilterHomeHead';
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,13 +24,10 @@ function HomeHead(props) {
                      <FilterHomeHead
                              classname='home_homeHead_filter'
                              stateFilter={props.stateFilter}
-                             onclick={props.hendlerFilterGoSearch}
+                             onclick={props.handlerFilterGoSearch}
                              handleChangeSelect={props.handleChangeSelect}
                              handlerChangeInput={props.handlerChangeInput}
                              handlerChangeSortBy={props.handlerChangeSortBy}
-                             hendlerScrollDownUp={props.hendlerScrollDownUp}
-                             flagButtonScroll={props.flagButtonScroll}
-                             flagOpenFilter={props.flagOpenFilter}
                              onclickOpenFilter={props.onclickOpenFilter}
                      />
                      :null

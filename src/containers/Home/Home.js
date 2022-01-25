@@ -1,9 +1,8 @@
 ﻿import React, { useEffect, useRef, useState} from 'react';
 import { connect, useDispatch, useSelector } from "react-redux";
 
-import HomeHead from './HomeHead';
-import HomeMain from './HomeMain';
-import ButtonScrollDownUp from '../../UI/Buttons/ButtonScrollDownUp';
+import HomeHead from '../../components/Home/HomeHead';
+import HomeMain from '../../components/Home/HomeMain';
 
 import {
     startHome_GET_RequestServer,
@@ -24,10 +23,7 @@ function Home(props) {
     const tableRef = useRef(null);
 
     const stateHome = useSelector(state => state.stateHome);
-    const pageActive = useSelector(state => state.stateHome.pageActive) + 2;
     const stateFilter = useSelector(state => state.stateFilter);
-
-    const [flagButtonScroll, setFlagButtonScroll] = useState(false);
 
     const handlerSaveScrollTop = () => {
         dispatch(saveScrollTop(tableRef.current.scrollTop));
@@ -38,18 +34,6 @@ function Home(props) {
         if (tableRef.current.scrollHeight - (tableRef.current.scrollTop + window.innerHeight) < 1000) {
             dispatch(startHome_GET_RequestServer());
         }
-        if (tableRef.current.scrollHeight /pageActive  - (tableRef.current.scrollTop + window.innerHeight) < 3000) {
-            setFlagButtonScroll(true);// первично кнопки не видно. появляется при прокрутке
-        }
-    }
-
-    const handlerScrollDownUp = () => {
-
-        tableRef.current.scrollTo(0, 0);
-        let flag = () => (
-            setFlagButtonScroll(false)
-            )
-        setTimeout(flag, 100);
     }
 
     const [flagOpenFilter, setFlagOpenFilter] = useState(false);
@@ -84,9 +68,12 @@ function Home(props) {
         };
 
         tableRef.current.scrollTo(0, stateHome.scrollHeight);
-        tableRef.current.addEventListener('scroll', hendlerScrollDownload);
+
+        //бесконечная загрузка
+        tableRef.current.addEventListener('scroll', handlerScrollDownload);
+
         return () => {
-            tableRef.current.removeEventListener('scroll', hendlerScrollDownload);
+            tableRef.current.removeEventListener('scroll', handlerScrollDownload);
         }
 
     }, [])
@@ -98,12 +85,11 @@ function Home(props) {
             <HomeHead
                 classname='homeHead'
                 flagOpenFilter={flagOpenFilter}
-
                 stateFilter={stateFilter}
                 handleChangeSelect={handleChangeSelect}
                 handlerChangeInput={handlerChangeInput}
                 handlerChangeSortBy={handlerChangeSortBy}
-                hendlerFilterGoSearch={handlerFilterGoSearch}
+                handlerFilterGoSearch={handlerFilterGoSearch}
                 onclickOpenFilter={handlerOpenFilter}
             />
 
@@ -116,16 +102,8 @@ function Home(props) {
                 handleChangeSelect={handleChangeSelect}
                 handlerChangeInput={handlerChangeInput}
                 handlerChangeSortBy={handlerChangeSortBy}
-                hendlerFilterGoSearch={handlerFilterGoSearch}
+                handlerFilterGoSearch={handlerFilterGoSearch}
                 onclickOpenFilter={handlerOpenFilter}
-            />
-          
-            <ButtonScrollDownUp
-                classname='button_scroll'
-                nameButton="&#11121;"
-                onclick={handlerScrollDownUp}
-                flag={flagButtonScroll}
-             
             />
         </div>
     )

@@ -11,14 +11,10 @@ export function* workerStart_MovieDetails_GET_RequestServer() {
     const idMovie = yield select(state => state.stateMovieDetails.idMovie);
     const url = `${url_all}${idMovie}`;
 
-    console.log('URL', `${url_all}${idMovie}`)
-
-
     try {
         const data = yield call(fetchData, url);
 
-        yield put(getRequestServerMovieDetails(data));
-        
+        yield put(getRequestServerMovieDetails(data));   
   
     } catch (error) {
         console.log('workerStart_MovieDetails_GET_RequestServer error ', error);
